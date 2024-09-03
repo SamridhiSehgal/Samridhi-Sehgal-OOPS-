@@ -1,0 +1,69 @@
+/*Anna is a contender for valedictorian of her high school. She wants to know 
+how many students (if any) have scored higher than her in the exams given 
+during this semester.
+Create a class named Student with the following specifications:
+ An instance variable named scores holds a student's 5 exam scores.
+ A void input () function reads 5 integers and saves them to scores.
+ An int calculateTotalScore() function that returns the sum of the 
+student's scores/*
+
+#include<iostream>
+using namespace std;
+class marks
+{
+    private:
+    int marks[5],totalm=0;//data members to store array marks and total marks
+    public: 
+    void input()          //to input details
+    {
+        int ma,s=1;
+        cout<<"student"<<s++<<" ";
+        for(int i=0;i<5;i++)
+        
+           { cin>>marks[i];}}
+        
+
+    
+    int total()       //to calculate marks
+    {
+        int i;
+        for(i=0;i<5;i++)
+        {
+            totalm=totalm+marks[i];
+        }return totalm;}
+ void display() {
+        
+        for (int i = 0; i < 5; i++) {
+            cout << marks[i] << " ";
+        }
+        cout << endl;}
+ 
+};
+int main()
+{
+    int n;
+    cout<<"Enter number of students"<<endl;
+    cin>>n;//no of students
+    marks d1[n];//object
+    int ts[n],s=1;
+    
+    for(int i=0;i<n;i++)
+    {
+        
+        d1[i].input();
+        
+        ts[i]=d1[i].total();
+    } for (int i = 0; i < n; i++) {
+        d1[i].display();
+    }
+    int ns=0;
+    for(int i=1;i<n;i++)
+    {
+        if(ts[0]<ts[i])//to find if the marks are greater than others
+        {
+            ns++ ;           
+        }
+    }
+    cout<<"Number of students scored greater marks:"<<ns<<endl;
+    return 0;
+}
