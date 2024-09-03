@@ -1,4 +1,4 @@
-Implement a Program in C++ by defining a class to represent a bank 
+/*Implement a Program in C++ by defining a class to represent a bank 
 account.
 Include the following:
 Data Members
@@ -10,24 +10,26 @@ Member Functions
 ● To assign initial values
 ● To deposit an amount
 ● To withdraw an amount after checking the balance
-● To display name and balanc
+● To display name and balance
+*/
 
 #include<iostream>
 using namespace std;
-
 class Account {
-    private: string name;//data members
-        int acc;
-        string type;
-        double bal;
-    public: void assign(string name,int acc,string type,float bal) {
+    private: string name;//data member to store name
+        int acc;         //data member to sccount number
+        string type;     //data member to store account type
+        double bal;      //data member to store balance
+    public: void assign(string name,int acc,string type,float bal)  //to assign values
+     {
            this-> name = name;
             this->acc =acc;
             this->type = type;
             this->bal =bal;
         }
 
-        void input() {
+        void input() //to input details
+        {
             cout << "Enter the name: ";
             cin >> name;
             cout << "Enter the account number: ";
@@ -38,7 +40,8 @@ class Account {
             cin >> bal;
         }
 
-        void deposit() {
+        void deposit() //to deposit amount
+        {
             int depvalue;
             cout<<"Balance is:"<<bal<<endl;
             this->bal=bal;
@@ -49,7 +52,8 @@ class Account {
             cout<<"Balance is:"<<bal<<endl;
         }
 
-        void withdraw() {
+        void withdraw() //to withdraw amount
+        {
             int withvalue;
              cout<<"Balance is:"<<bal<<endl;
               cout << "Enter the withdrawal amount: ";
@@ -60,13 +64,14 @@ class Account {
             cout<<"Balance is:"<<bal<<endl;
         }
 
-        void display() {
+        void display() //to display details
+        {
             cout << "Name: "<< "\t"<<"Account Number"<<"\t"<<"Account Type"<<"\t"<<"Balance: " << endl;
              cout<<name<<"\t\t"<<acc<<"\t\t"<<type<<"\t\t"<<bal<<endl;}
 };
 
 int main() {
-    Account d1;
+    Account d1;//object
     string name ,type;
     int acc;double bal,n;
     cout<<"Enter the number of people"<<endl;
@@ -110,3 +115,4 @@ cin>>choice;
     }
     return 0;
 }
+
