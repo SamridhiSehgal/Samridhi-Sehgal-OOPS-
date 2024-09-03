@@ -1,0 +1,76 @@
+/*An electricity board charges the following rates to domestic users to 
+discourage large consumption of energy.
+For the first 100 units: - 60 P per unit 
+For the next 200 units: -80 P per unit 
+Beyond 300 units: -90 P per unit
+All users are charged a minimum of Rs 50 if the total amount is more than 
+Rs 300 then an additional surcharge of 15% is added.
+Implement a C++ program to read the names of users and number of units
+consumed and display the charges with name
+*/
+
+#include<iostream>
+using namespace std;
+class user
+{
+    private:
+    int units;        //data member to store number of units
+    string name;      //data member to store name of user
+    float total=0.0;  //data member to store the total bill
+public:
+ void setDetails(int units,string name)  //to set the details
+{
+    this->units=units;
+    this->name=name;
+
+}
+int calcultatebill(int units)    //to calculate the bill
+{
+if(units<=100)
+{
+    total=total+(units*(0.60));
+    
+}else
+if(units>100&&units<=300)
+{
+total=total+(100*(.60))+((units-100)*(.80));
+
+}else
+
+{
+    total=total+(100*(.60))+(200*(0.80))+((units-300)*(0.90));
+
+
+
+}if(total<50.0)
+    {
+        total=50.0;
+    }if(total>300)
+{
+    float st=0.15*total;
+    total=total+st;
+}
+    
+return total;}
+void show()     //to display the details
+{   cout<<"User name"<<"\t"<<"Units"<<"\t"<<"Bill"<<endl;
+    cout<<name<<"\t\t"<<units<<"\t"<<total<<endl;
+}
+};
+int main()
+{
+    user d1;    //object
+    string name;
+    int uni,n;
+    cout<<"Enter the number of users"<<endl; 
+    cin>>n;                                  //enter number of users 
+    for(int i=0;i<n;i++)
+    {
+    cout<<"Enter the user name"<<endl;        //enter the name of user       
+    cin>>name;
+    cout<<"Enter the total units used"<<endl;   //enter the total units used
+    cin>>uni;
+    d1.setDetails(uni,name);
+    d1.calcultatebill(uni);
+    d1.show();}
+}
