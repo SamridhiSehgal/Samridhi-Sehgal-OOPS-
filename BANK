@@ -1,0 +1,112 @@
+Implement a Program in C++ by defining a class to represent a bank 
+account.
+Include the following:
+Data Members
+● Name of the depositor
+● Account number
+● Type of account (Saving, Current etc.)
+● Balance amount in the account
+Member Functions
+● To assign initial values
+● To deposit an amount
+● To withdraw an amount after checking the balance
+● To display name and balanc
+
+#include<iostream>
+using namespace std;
+
+class Account {
+    private: string name;//data members
+        int acc;
+        string type;
+        double bal;
+    public: void assign(string name,int acc,string type,float bal) {
+           this-> name = name;
+            this->acc =acc;
+            this->type = type;
+            this->bal =bal;
+        }
+
+        void input() {
+            cout << "Enter the name: ";
+            cin >> name;
+            cout << "Enter the account number: ";
+            cin >> acc;
+            cout << "Enter the account type: ";
+            cin >> type;
+            cout << "Enter the balance: ";
+            cin >> bal;
+        }
+
+        void deposit() {
+            int depvalue;
+            cout<<"Balance is:"<<bal<<endl;
+            this->bal=bal;
+            cout << "Enter the deposit amount: ";
+            cin >>depvalue;
+             bal = bal + depvalue;
+            cout << "Deposited\n";
+            cout<<"Balance is:"<<bal<<endl;
+        }
+
+        void withdraw() {
+            int withvalue;
+             cout<<"Balance is:"<<bal<<endl;
+              cout << "Enter the withdrawal amount: ";
+            cin >>withvalue;
+             if(bal>=withvalue)
+            bal = bal - withvalue;
+            cout << "Withdrawn\n";
+            cout<<"Balance is:"<<bal<<endl;
+        }
+
+        void display() {
+            cout << "Name: "<< "\t"<<"Account Number"<<"\t"<<"Account Type"<<"\t"<<"Balance: " << endl;
+             cout<<name<<"\t\t"<<acc<<"\t\t"<<type<<"\t\t"<<bal<<endl;}
+};
+
+int main() {
+    Account d1;
+    string name ,type;
+    int acc;double bal,n;
+    cout<<"Enter the number of people"<<endl;
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+     cout << "Enter the name: ";
+            cin >> name;
+            cout << "Enter the account number: ";
+            cin >> acc;
+            cout << "Enter the account type: ";
+            cin >> type;
+            cout << "Enter the balance: ";
+            cin >> bal;
+    d1.assign(name,acc,type,bal);
+    
+    int choice;
+     cout << "1. Deposit\n";
+        cout << "2. Withdraw\n";
+        cout << "3. Exit\n";
+    do {
+       
+        cout << "Enter your choice: ";
+cin>>choice;
+        switch (choice) {
+            case 1:
+                d1.deposit();
+                break;
+            case 2:
+                d1.withdraw();
+                break;
+            case 3:
+                cout << "Exiting...\n";
+                break;
+            default:
+                cout << "Invalid choice! Please try again.\n";
+                break;
+        }
+    } while (choice !=3);
+      d1.display();
+    }
+    return 0;
+}
