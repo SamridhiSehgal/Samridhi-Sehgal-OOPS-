@@ -1,0 +1,30 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+void remove(char str[50],char cstr[50],char k)//to remove the character
+{int l,i,j=0;
+
+        l=strlen(str);//length of the string
+    for(i=0;i<l;i++)
+    {
+        if(str[i]!=k)
+{
+    cstr[j]=str[i];//copying the string after removing the character
+    j++;
+}
+    } cstr[j]='\0' ;
+}
+
+int main()
+{
+    char str[50],cstr[50],k;
+    int i,j=0,l;
+    cout<<"Enter the string"<<endl;//original string
+    cin.getline(str, 50);
+    
+    cout<<"Enter the character to be removed"<<endl;//removing character
+    cin>>k;
+   remove(str,cstr,k);
+    
+    cout<<"the new string is "<<cstr;//new string
+return 0;}
